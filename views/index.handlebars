@@ -1,0 +1,38 @@
+<div class = "container">
+<h1>Welcome To Burger Land!!</h1>
+
+<h2>Burgers you want to devour!</h2>
+ <section class="row">
+        <div class="col-md-7 col-left">
+            <table>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burgers/burger-block devour=true}}
+                    {{/unless}}
+                {{/each}}
+            </table>
+        </div>
+        <div class="col-md-5 col-right">
+            {{#each burgers}}
+                {{#if devoured}}
+                    <div>{{id}}. {{burger_name}}</div>
+                {{/if}}
+            {{/each}}        
+        </div>          
+    </section>
+ 
+<h2>Add A Burger!</h2>
+
+			<form class="create-update-form" action="/create" method="POST">
+
+			  <div class="form-group">
+			    <p>Enter a burger you want to order and click the Submit button.</p>
+			    <input type="text" id="ca" name="burger_name">
+			  </div>
+			  
+			  <button class="btn-primary" type="submit">Submit!</button>
+			</form>
+      </div>
+
+
+      
